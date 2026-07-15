@@ -72,7 +72,7 @@ export default function OverviewPage() {
   const isAccount = location === "all";
   const subtitle = isAccount
     ? "Payments across all locations today · Fiore"
-    : `Payments taken at the table today · ${LOCATIONS[location].name}`;
+    : `Payment taken at the table today · ${LOCATIONS[location].name}`;
 
   return (
     <section>
