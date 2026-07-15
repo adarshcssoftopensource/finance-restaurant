@@ -43,7 +43,7 @@ export default function Team() {
           strokeWidth={1.9}
         />
         <span>
-          You&apos;re signed in as <b>Jason King · Owner</b>. Owners and Admins
+          You&apos;re signed in as <b>Alex Morgan · Owner</b>. Owners and Admins
           can invite people and manage roles.
         </span>
       </div>

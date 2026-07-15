@@ -56,9 +56,9 @@ export const ROLES: {
 export const MEMBERS: Member[] = [
   {
     id: "m1",
-    name: "Jason King",
-    email: "jason@fioregroup.com",
-    initials: "JK",
+    name: "Alex Morgan",
+    email: "alex.morgan@fioregroup.com",
+    initials: "AM",
     avatarBg: "linear-gradient(135deg,var(--color-primary),#F0A38A)",
     role: "owner",
     locations: "All locations",
@@ -129,9 +129,9 @@ export const AUDIT_LOG: AuditEntry[] = [
   },
   {
     id: "a3",
-    initials: "JK",
+    initials: "AM",
     avatarBg: "linear-gradient(135deg,var(--color-primary),#F0A38A)",
-    html: "<b>Jason King</b> invited <b>Alex Park</b> as Viewer — Midtown.",
+    html: "<b>Alex Morgan</b> invited <b>Alex Park</b> as Viewer — Midtown.",
     time: "Yesterday · 4:03 PM",
   },
   {

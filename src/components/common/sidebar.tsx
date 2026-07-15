@@ -14,7 +14,7 @@ export function Sidebar() {
     <aside className="sticky top-0 hidden h-screen flex-col border-r bg-paper px-3.5 py-5 min-[820px]:flex">
       <div className="px-2 pb-5 pt-1.5">
         <Logo
-          className="h-5 max-w-[160px]"
+          className="h-8 max-w-[220px]"
           href={paths.dashboard.overview.href}
         />
       </div>

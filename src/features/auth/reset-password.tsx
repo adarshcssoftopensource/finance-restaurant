@@ -29,7 +29,7 @@ export default function ResetPasswordPage() {
         title="Choose a new password"
         subtitle={
           <>
-            For <b>jason@fioregroup.com</b> · you&apos;ll be signed out
+            For <b>alex.morgan@fioregroup.com</b> · you&apos;ll be signed out
             everywhere else.
           </>
         }
