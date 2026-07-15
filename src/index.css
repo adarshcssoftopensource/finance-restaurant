@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ *
+ * 1. Design tokens (Finance Restaurants)                               *
+ *    Light-first palette. Values are raw so @theme inline can map     *
+ *    them into Tailwind utilities (bg-*, text-*, border-*).           *
+ * ------------------------------------------------------------------ */
+:root {
+  --radius: 0.75rem;
+
+  /* surfaces & text */
+  --background: #f4eee2; /* cream — app canvas */
+  --foreground: #1a1714; /* ink */
+  --paper: #fbf8f1; /* sidebar / topbar / popovers */
+  --card: #ffffff;
+  --card-foreground: #1a1714;
+  --popover: #fbf8f1;
+  --popover-foreground: #1a1714;
+
+  /* brand */
+  --primary: #ef6347; /* coral */
+  --primary-foreground: #ffffff;
+  --coral-d: #d9462c; /* coral pressed / accent text */
+  --coral-soft: #fbe3da;
+  --coral-tint: #fdf1ec;
+
+  --secondary: #fbf8f1;
+  --secondary-foreground: #1a1714;
+  --muted: #f0e9db; /* line2 — chips, fills */
+  --muted-foreground: #8a7f71;
+  --accent: #fdf1ec; /* coral-tint */
+  --accent-foreground: #d9462c;
+
+  /* status */
+  --destructive: #d9462c;
+  --destructive-foreground: #ffffff;
+  --success: #2f9e6b;
+  --success-soft: #e5f2ea;
+  --warning: #b27a28;
+  --warning-soft: #f6ecd7;
+  --info: #3e7cb1; /* slate rail */
+  --plum: #8a5fa3; /* BNPL rail */
+
+  /* neutrals */
+  --ink2: #4b443c;
+  --faint: #9c9080;
+  --line: #e9e0d1;
+  --line2: #f0e9db;
+
+  /* lines / focus */
+  --border: #e9e0d1;
+  --input: #e9e0d1;
+  --ring: #ef6347;
+
+  /* typography */
+  --font-display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+  --font-numeric: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  /* chart series (Insights / Reports) */
+  --chart-1: #ef6347;
+  --chart-2: #1a1714;
+  --chart-3: #3e7cb1;
+  --chart-4: #8a5fa3;
+  --chart-5: #2f9e6b;
+
+  color-scheme: light;
+}
+
+/* ------------------------------------------------------------------ *
+ * 2. Map tokens -> Tailwind utilities                                 *
+ * ------------------------------------------------------------------ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-coral-d: var(--coral-d);
+  --color-coral-soft: var(--coral-soft);
+  --color-coral-tint: var(--coral-tint);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-info: var(--info);
+  --color-plum: var(--plum);
+
+  --color-ink2: var(--ink2);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line2: var(--line2);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --font-sans: var(--font-display);
+  --font-mono: var(--font-numeric);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+/* ------------------------------------------------------------------ *
+ * 3. Base styles                                                      *
+ * ------------------------------------------------------------------ */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-display);
+    font-size: 14px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    font-weight: 700;
+  }
+  /* tabular figures for money/metrics */
+  .tnum {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * 4. Keyframes (live status dots)                                     *
+ * ------------------------------------------------------------------ */
+@keyframes finance-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(47, 158, 107, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(47, 158, 107, 0);
+  }
+}
+.pulse-ring {
+  animation: finance-pulse 2.4s infinite;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * 5. Landing page animations (marketing route only)                   *
+ *    Applied via Tailwind arbitrary utilities, e.g.                   *
+ *    animate-[landing-float_6.5s_ease-in-out_infinite].               *
+ *    All are neutralised by the reduced-motion block below.           *
+ * ------------------------------------------------------------------ */
+@keyframes landing-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+@keyframes landing-glow {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.07);
+  }
+}
+@keyframes landing-scan {
+  0%,
+  100% {
+    top: 6px;
+  }
+  50% {
+    top: 164px;
+  }
+}
+@keyframes landing-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes landing-pop {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes landing-shimmer {
+  0% {
+    transform: translateX(-110%);
+  }
+  55%,
+  100% {
+    transform: translateX(110%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
